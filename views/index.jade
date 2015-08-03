@@ -1,0 +1,204 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  .form
+    form(action='/api/matches' method='POST')
+      div
+        label Match ID
+        input(name='matchID')
+      div
+        label Lobby Type
+        input(value='online' name='lobby')
+      div
+        label Mode
+        input(value='cm' name='mode')
+      div
+        label Time
+        input(value='' name='time' placeholder='MM-DD-YYYY')
+      div
+        label Duration
+        input(value='' name='duration' placeholder='HH:mm:ss')
+      div
+        label Win team
+        select(name='win')
+          option(value='radiant') radiant
+          option(value='dire') dire
+      
+      each i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        //- Player
+        br
+        div.player Player ##{i}
+          div
+            label name
+            select(name='player-#{i}-name')
+              option(value='trinhngo') trinhngo
+              option(value='canhdoan') canhdoan
+              option(value='slim') slim
+              option(value='trungpd') trungpd
+              option(value='cale') cale
+              option(value='dod') dod
+              option(value='bom') bom
+              option(value='haunguyen') haunguyen
+              option(value='duyphan') duyphan
+              option(value='vinhhuynh') vinhhuynh
+              option(value='huytran') huytran
+          div
+            label hero
+            select(name='player-#{i}-hero')
+              option(value='antimage') Anti-Mage
+              option(value='axe') Axe
+              option(value='bane') Bane
+              option(value='bloodseeker') Bloodseeker
+              option(value='crystal_maiden') Crystal Maiden
+              option(value='drow_ranger') Drow Ranger
+              option(value='earthshaker') Earthshaker
+              option(value='juggernaut') Juggernaut
+              option(value='mirana') Mirana
+              option(value='nevermore') Shadow Fiend
+              option(value='morphling') Morphling
+              option(value='phantom_lancer') Phantom Lancer
+              option(value='puck') Puck
+              option(value='pudge') Pudge
+              option(value='razor') Razor
+              option(value='sand_king') Sand King
+              option(value='storm_spirit') Storm Spirit
+              option(value='sven') Sven
+              option(value='tiny') Tiny
+              option(value='vengefulspirit') Vengeful Spirit
+              option(value='windrunner') Windranger
+              option(value='zuus') Zeus
+              option(value='kunkka') Kunkka
+              option(value='lina') Lina
+              option(value='lich') Lich
+              option(value='lion') Lion
+              option(value='shadow_shaman') Shadow Shaman
+              option(value='slardar') Slardar
+              option(value='tidehunter') Tidehunter
+              option(value='witch_doctor') Witch Doctor
+              option(value='riki') Riki
+              option(value='enigma') Enigma
+              option(value='tinker') Tinker
+              option(value='sniper') Sniper
+              option(value='necrolyte') Necrophos
+              option(value='warlock') Warlock
+              option(value='beastmaster') Beastmaster
+              option(value='queenofpain') Queen of Pain
+              option(value='venomancer') Venomancer
+              option(value='faceless_void') Faceless Void
+              option(value='skeleton_king') Wraith King
+              option(value='death_prophet') Death Prophet
+              option(value='phantom_assassin') Phantom Assassin
+              option(value='pugna') Pugna
+              option(value='templar_assassin') Templar Assassin
+              option(value='viper') Viper
+              option(value='luna') Luna
+              option(value='dragon_knight') Dragon Knight
+              option(value='dazzle') Dazzle
+              option(value='rattletrap') Clockwerk
+              option(value='leshrac') Leshrac
+              option(value='furion') Nature&apos;s Prophet
+              option(value='life_stealer') Lifestealer
+              option(value='dark_seer') Dark Seer
+              option(value='clinkz') Clinkz
+              option(value='omniknight') Omniknight
+              option(value='enchantress') Enchantress
+              option(value='huskar') Huskar
+              option(value='night_stalker') Night Stalker
+              option(value='broodmother') Broodmother
+              option(value='bounty_hunter') Bounty Hunter
+              option(value='weaver') Weaver
+              option(value='jakiro') Jakiro
+              option(value='batrider') Batrider
+              option(value='chen') Chen
+              option(value='spectre') Spectre
+              option(value='doom_bringer') Doom
+              option(value='ancient_apparition') Ancient Apparition
+              option(value='ursa') Ursa
+              option(value='spirit_breaker') Spirit Breaker
+              option(value='gyrocopter') Gyrocopter
+              option(value='alchemist') Alchemist
+              option(value='invoker') Invoker
+              option(value='silencer') Silencer
+              option(value='obsidian_destroyer') Outworld Devourer
+              option(value='lycan') Lycan
+              option(value='brewmaster') Brewmaster
+              option(value='shadow_demon') Shadow Demon
+              option(value='lone_druid') Lone Druid
+              option(value='chaos_knight') Chaos Knight
+              option(value='meepo') Meepo
+              option(value='treant') Treant Protector
+              option(value='ogre_magi') Ogre Magi
+              option(value='undying') Undying
+              option(value='rubick') Rubick
+              option(value='disruptor') Disruptor
+              option(value='nyx_assassin') Nyx Assassin
+              option(value='naga_siren') Naga Siren
+              option(value='keeper_of_the_light') Keeper of the Light
+              option(value='wisp') Io
+              option(value='visage') Visage
+              option(value='slark') Slark
+              option(value='medusa') Medusa
+              option(value='troll_warlord') Troll Warlord
+              option(value='centaur') Centaur Warrunner
+              option(value='magnataur') Magnus
+              option(value='shredder') Timbersaw
+              option(value='bristleback') Bristleback
+              option(value='tusk') Tusk
+              option(value='skywrath_mage') Skywrath Mage
+              option(value='abaddon') Abaddon
+              option(value='elder_titan') Elder Titan
+              option(value='legion_commander') Legion Commander
+              option(value='ember_spirit') Ember Spirit
+              option(value='earth_spirit') Earth Spirit
+              option(value='terrorblade') Terrorblade
+              option(value='phoenix') Phoenix
+              option(value='oracle') Oracle
+              option(value='techies') Techies
+              option(value='winter_wyvern') Winter Wyvern
+              option(value='nevermore') Shadow Fiend
+
+
+          div
+            label items
+            input(name='player-#{i}-items')
+          div
+            label GPM
+            input(name='player-#{i}-GPM')
+          div
+            label XPM
+            input(name='player-#{i}-XPM')
+          div
+            label kill
+            input(name='player-#{i}-kill')
+          div
+            label death
+            input(name='player-#{i}-death')
+          div
+            label assit
+            input(name='player-#{i}-assit')
+          div
+            label lasthit
+            input(name='player-#{i}-lasthit')
+          div
+            label role
+            select(name='player-#{i}-role')
+              option(value='mid') mid
+              option(value='carry') carry
+              option(value='offlane') offlane
+              option(value='support') support
+              option(value='jungle') jungle
+          div
+            label side
+            select(name='player-#{i}-side')
+              option(value='radiant') radiant
+              option(value='dire') dire
+
+      //- Submit
+      div
+        input(type='submit')
+
+
+
